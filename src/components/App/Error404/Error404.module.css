@@ -1,0 +1,36 @@
+/* ELEMENTS */
+.error {
+    gap: 1rem;
+    width: 100%;
+    height: 100vh;
+    padding: 2rem;
+    flex-direction: column;
+}
+
+.error__title {
+    font-weight: 600;
+    color: var(--secondary);
+    font-size: clamp(3.2rem, 2.2vw, 4.8rem);
+}
+
+.error__message {
+    font-weight: 300;
+    color: var(--text);
+    text-align: center;
+    font-size: clamp(1.6rem, 2.2vw, 2.4rem);
+}
+
+.error__button {
+    border: none;
+    outline: none;
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    user-select: none;
+    color: var(--primary);
+    border-radius: 0.5rem;
+    -ms-user-select: none;
+    padding: 0.8rem 1.5rem;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    background-color: var(--white);
+}

@@ -1,0 +1,54 @@
+/* ELEMENTS */
+.searchbar {
+    gap: 0.5rem;
+    max-width: 20rem;
+    padding: 0.8rem 1rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--text);
+}
+
+.searchbar:hover {
+    cursor: text;
+}
+
+.searchbar__input {
+    width: 100%;
+    border: none;
+    flex-grow: 1;
+    min-width: 0;
+    outline: none;
+    font-size: 1.6rem;
+    color: var(--text);
+    caret-color: var(--text);
+    font-family: "Montserrat";
+    background-color: inherit;
+}
+
+.searchbar__input::-webkit-input-placeholder {
+    color: var(--text);
+}
+
+.searchbar__input::-moz-placeholder {
+    color: var(--text);
+}
+
+.searchbar__input:-ms-input-placeholder {
+    color: var(--text);
+}
+
+.searchbar__input::-ms-input-placeholder {
+    color: var(--text);
+}
+
+.searchbar__input::placeholder {
+    color: var(--text);
+}
+
+.searchbar__icon {
+    font-size: 1.8rem;
+    color: var(--text);
+}
+
+.searchbar__icon:hover {
+    cursor: pointer;
+}

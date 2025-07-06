@@ -1,10 +1,13 @@
+{/* STYLES */}
+import './main.css';
+
 {/* DEPENDENCIES */}
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
-{/* STYLES */}
-import './main.css';
+{/* PROVIDERS */}
+import { AppContextProvider } from './providers/AppContextProvider';
 
 {/* COMPONENTS */}
 import { App } from './components/App/App';
@@ -16,7 +19,9 @@ const root = ReactDOM.createRoot(document.querySelector('#root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <AppContextProvider>
+        <App />
+      </AppContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

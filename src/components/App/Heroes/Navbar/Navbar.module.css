@@ -1,0 +1,41 @@
+/* ELEMENTS */
+.navbar {
+    top: 0;
+    left: 0;
+    gap: 1rem;
+    width: 100%;
+    padding: 2rem;
+    z-index: 9999;
+    position: fixed;
+    justify-content: space-between;
+    background-color: var(--primary);
+    box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.1);
+}
+
+.navbar__logo {
+    position: relative;
+}
+
+.logo__text {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.logo__text--back {
+    font-size: 4rem;
+    font-weight: 100;
+    position: absolute;
+    letter-spacing: 0.3rem;
+    color: var(--secondary);
+    text-shadow: 0 0.1rem 0.3rem var(--secondary);
+}
+
+.logo__text--front {
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--white);
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+}

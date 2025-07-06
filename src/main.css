@@ -1,8 +1,10 @@
-/* FONTS */
+/* IMPORTS */
+@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
 
 /* VARIABLES */
 :root {
+    --text: #AAABAD;
     --white: #FFFFFF;
     --black: #000000;
     --primary: #282828;
@@ -13,12 +15,18 @@
 html {
     font-size: 62.5%;
     box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
 }
 
 *, *::before, *::after {
     margin: 0;
     padding: 0;
+    line-height: 100%;
     box-sizing: inherit;
+}
+
+body {
+    background-color: var(--primary);
 }
 
 button:hover {
@@ -33,9 +41,13 @@ a {
     text-decoration: none;
 }
 
+img {
+    display: inline-block;
+}
+
 /* FUNCTIONALITIES */
 .center {
-    display: center;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -44,4 +56,5 @@ a {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    -o-object-fit: contain;
 }
