@@ -45,14 +45,14 @@
 .data__name {
     opacity: 1;
     font-weight: 400;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     line-height: normal;
     margin-bottom: 1rem;
 }
 
 .data__paragraph {
     font-weight: 200;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .data__link {

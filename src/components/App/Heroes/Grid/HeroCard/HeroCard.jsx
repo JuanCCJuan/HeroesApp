@@ -14,7 +14,7 @@ export const HeroCard = ({ name, image, biography }) => {
 
             <div className={ `center ${styles.card__info}` }>
                 <div className={ `center ${styles.info__data}` }>
-                    <h2 className={ styles.data__name }>
+                    <h2 className={ `line-clamp-1 ${styles.data__name}` }>
                         { name }
                     </h2>
 

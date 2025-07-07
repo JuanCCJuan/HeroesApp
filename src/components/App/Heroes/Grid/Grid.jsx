@@ -24,7 +24,7 @@ export const Grid = () => {
         );
     }
 
-    if(heroesList.length === 0){
+    if(filteredHeroesList.length === 0){
         const message = heroName ? 'No se encontraron héroes con este nombre.' : 'La solicitud de héroes falló.';
 
         return(
