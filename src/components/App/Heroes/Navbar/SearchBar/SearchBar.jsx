@@ -30,6 +30,9 @@ export const SearchBar = () => {
         // Extraemos el valor del input
         const inputValue = removeAccents(inputRef.current.value.trim().toLowerCase());
 
+        // Se desenfoca el input
+        inputRef.current.blur();
+
         // Actualizamos el nombre del heroe
         setHeroName(inputValue);
     }
