@@ -59,7 +59,7 @@ const reducer = (pagination, action) => {
             }
         }
         default:
-            throw new Error();
+            return initPagination;
     }
 }
 

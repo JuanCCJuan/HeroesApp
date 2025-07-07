@@ -1,5 +1,5 @@
 /* HOOKS */
-import { useMemo, useContext } from 'react';
+import { useMemo, useEffect, useContext } from 'react';
 
 {/* CONTEXTS */}
 import { AppContext } from '../contexts/AppContext';
@@ -9,7 +9,7 @@ import { removeAccents } from '../helpers/removeAccents';
 
 export const useFilterList = () => {
     // Obtiene el listado de heroes
-    const { heroName, heroesList } = useContext(AppContext);
+    const { heroName, heroesList, dispatch } = useContext(AppContext);
 
     // Obtiene una lista filtrada de heroes
     const filteredHeroesList = useMemo(() => {
@@ -32,6 +32,10 @@ export const useFilterList = () => {
             return [];
         }
     }, [heroName, heroesList]);
+
+    useEffect(() => {
+        dispatch({ type: 'RESET' });
+    }, [filteredHeroesList]);
 
     return {
         heroName, 
