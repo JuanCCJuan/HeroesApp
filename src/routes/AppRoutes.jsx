@@ -8,7 +8,7 @@ export const AppRoutes = () => {
     return(
         <Routes>
             <Route path='/*' element={ <Error404 /> } />
-            <Route path='/heroes' element={ <Heroes /> } />
+            <Route path='/HeroesApp/heroes' element={ <Heroes /> } />
         </Routes>
     );
 }
