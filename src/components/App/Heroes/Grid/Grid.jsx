@@ -3,6 +3,7 @@ import styles from './Grid.module.css';
 
 {/* HOOKS */}
 import { useContext } from 'react';
+import { useFilterList } from '../../../../hooks/useFilterList';
 
 {/* CONTEXTS */}
 import { AppContext } from '../../../../contexts/AppContext';
@@ -12,19 +13,31 @@ import { HeroCard } from './HeroCard/HeroCard';
 import { Spinner, ErrorMessage } from '../../../Shared';
 
 export const Grid = () => {
-    // Obtiene el listado de heroes
-    const { heroList } = useContext(AppContext);
+    const { heroName, heroesList, filteredHeroesList } = useFilterList();
 
-    if(!heroList){
+    // Obtiene la paginacion del contexto de la aplicacion
+    const { pagination: { page }, LIMIT } = useContext(AppContext);
+
+    if(!heroesList){
         return(
             <Spinner />
         );
     }
 
+    if(heroesList.length === 0){
+        const message = heroName ? 'No se encontraron héroes con este nombre.' : 'La solicitud de héroes falló.';
+
+        return(
+            <ErrorMessage message={ message } />
+        );
+    }
+
+    const subList = filteredHeroesList.slice((page - 1) * LIMIT, (page * LIMIT));
+
     return(
         <div className={ styles.grid }>
             {
-                heroList.map(hero => {
+                subList.map(hero => {
                     const { id, name, images: { sm }, biography } = hero;
 
                     return(

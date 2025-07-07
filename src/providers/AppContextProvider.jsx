@@ -2,10 +2,66 @@
 import PropTypes from 'prop-types';
 
 {/* HOOKS */}
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useReducer, useCallback } from 'react';
 
 {/* CONTEXTS */}
 import { AppContext } from '../contexts/AppContext';
+
+// Limite de resultados por pagina
+const LIMIT = 60;
+
+// Crea el estado inicial de la paginacion
+const initPagination = {
+    page: 1, 
+    selected: 0, 
+};
+
+// Crea el reducer de la paginacion
+const reducer = (pagination, action) => {
+    const { type, payload } = action;
+    const { page, selected } = pagination;
+
+    switch(type){
+        case 'NEXT': {
+            const newPage = (page < payload) ? page + 1 : page;
+            const newSelected = (selected < 4) ? selected + 1 : selected;
+
+            return {
+                page: newPage, 
+                selected: newSelected, 
+            }
+        }
+        case 'PREVIOUS': {
+            const newPage = (page > 1) ? page - 1 : page;
+            const newSelected = (selected > 0) ? selected - 1 : selected;
+
+            return {
+                page: newPage, 
+                selected: newSelected, 
+            }
+        }
+        case 'END': 
+            return {
+                page: payload, 
+                selected: 4, 
+            }
+        case 'START': 
+            return initPagination;
+        case 'SELECT': {
+            const numberAsAString = `${payload}`;
+
+            const newPage = parseInt(numberAsAString[0]);
+            const newSelected = parseInt(numberAsAString[1]);
+
+            return {
+                page: newPage, 
+                selected: newSelected, 
+            }
+        }
+        default:
+            throw new Error();
+    }
+}
 
 // Hace la peticion para obtener la lista de heroes
 const heroesRequest = async () => {
@@ -28,21 +84,24 @@ export const AppContextProvider = ({ children }) => {
     const [heroName, setHeroName] = useState('');
 
     // Crea un estado para almacenar la lista de heroes
-    const [heroList, setHeroList] = useState(null);
+    const [heroesList, setHeroesList] = useState(null);
+
+    // Crea un reducer para la paginacion
+    const [pagination, dispatch] = useReducer(reducer, initPagination);
 
     // Memoriza la funcion para obtener heroes
     const getHeroes = useCallback(async () => {
         const heroes = await heroesRequest();
-        setHeroList(heroes);
+        setHeroesList(heroes);
     }, []);
     
     // Ejecuta solo la primer vez la funcion para obtener heroes
     useEffect(() => {
         getHeroes();
-    });
+    }, []);
 
     return(
-        <AppContext.Provider value={{ heroName, setHeroName, heroList }}>
+        <AppContext.Provider value={{ heroName, setHeroName, heroesList, pagination, dispatch, LIMIT }}>
             { children }
         </AppContext.Provider>
     );

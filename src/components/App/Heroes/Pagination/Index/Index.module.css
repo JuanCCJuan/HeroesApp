@@ -1,0 +1,25 @@
+/* ELEMENTS */
+.index {
+    width: 3rem;
+    height: 3rem;
+    aspect-ratio: 1;
+    overflow: hidden;
+    font-weight: 500;
+    font-size: 1.8rem;
+    user-select: none;
+    color: var(--white);
+    border-radius: 0.5rem;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.index:hover {
+    cursor: pointer;
+}
+
+.index--selected {
+    color: var(--black);
+    background-color: var(--secondary);
+}

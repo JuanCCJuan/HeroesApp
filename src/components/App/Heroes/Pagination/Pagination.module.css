@@ -1,0 +1,18 @@
+/* ELEMENTS */
+.pagination {
+    gap: 0.5rem;
+    margin: 8rem auto;
+}
+
+.arrow {
+    font-size: 3rem;
+    color: var(--black);
+}
+
+.arrow:hover {
+    cursor: pointer;
+}
+
+.pagination__list {
+    gap: 0.5rem;
+}
