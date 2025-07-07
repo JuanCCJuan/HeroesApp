@@ -4,7 +4,7 @@ import './main.css';
 {/* DEPENDENCIES */}
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 {/* PROVIDERS */}
 import { AppContextProvider } from './providers/AppContextProvider';
@@ -18,10 +18,10 @@ const root = ReactDOM.createRoot(document.querySelector('#root'));
 // Renderiza la raiz del proyecto
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <AppContextProvider>
         <App />
       </AppContextProvider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );

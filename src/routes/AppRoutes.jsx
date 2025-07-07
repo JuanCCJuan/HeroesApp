@@ -7,8 +7,8 @@ import { Heroes, Error404 } from '../components/App';
 export const AppRoutes = () => {
     return(
         <Routes>
-            <Route path='/*' element={ <Error404 /> } />
-            <Route path='/HeroesApp/heroes' element={ <Heroes /> } />
+            <Route path='/' element={ <Heroes /> } />
+            <Route path='*' element={ <Error404 /> } />
         </Routes>
     );
 }
